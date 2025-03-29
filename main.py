@@ -326,10 +326,6 @@ def signUp():
     emailinUse = request.args.get('emailinUse') == 'True' 
     
     return render_template('signUp.html', emailinUse=emailinUse)
-    
-@app.route('/show') 
-def showAll():
-    return render_template('show.html', accounts=Account.query.all())
 
 def hashed_pass(user_pass):
     salt = bcrypt.gensalt()
@@ -500,11 +496,6 @@ def list_of_restaurants(lat, long):
     }
 
     response = requests.post("https://places.googleapis.com/v1/places:searchNearby", headers=headers, json=paylaod)
-    #TO GET NAME OF RESTAURANT, CHANGE WHERE IT SAYS 0 TO GET NEXT RESTAURANT response.json()['places'][0]['displayName']['text']
-    #TO GET ADDRESS OF RESTAURANT response.json()['places'][0]['formattedAddress']
-    #PHONE NUMBER response.json()['places'][0][internationalPhoneNumber]
-    #PICTURE OF LOGO response.json()['places'][0]['photos'][1]['authorAttributions'][0]['photoUri']
-    #CURRENTLY OPEN? response.json()['places'][0]['regularOpeningHours']['openNow']
     return response.json()
 
 
