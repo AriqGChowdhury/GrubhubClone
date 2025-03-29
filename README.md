@@ -34,3 +34,29 @@ This GrubHub Clone is a full-stack web application that allows users to explore,
 * Backend: (Python)
 
 * Database: (SQL, SQLAlchemy)
+
+### Installation
+
+Clone
+```bash
+https://github.com/AriqGChowdhury/GrubhubClone.git
+
+cd GitHubClone
+
+pip install -r requirements.txt
+```
+Run program
+
+```bash
+
+flask run
+
+```
+
+### Demo
+
+insert url here
+
+### License
+
+This project is licensed under the MIT License - see the LICENSSE file for details
