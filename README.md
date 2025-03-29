@@ -53,6 +53,10 @@ flask run
 
 ```
 
+### Support 
+
+Contact me at ariq922@hotmail.com
+
 ### Demo
 
 insert url here
