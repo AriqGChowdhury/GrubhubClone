@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Food Ordering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Secular+One&family=Teko:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel+Decorative:wght@400;700;900&family=Fugaz+One&family=Poetsen+One&family=Secular+One&family=Teko:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <form method="POST" action="/results">
+        <div class="background">
+            <div class="grid-index">
+                <div class="homescreen-label">Get food delivery and more</div>
+                <div class="address-entry-input">
+                    <input type="text" class="search-address" size="60" name="address-input" style="border-radius: 20px;" placeholder="Enter Your Delivery Address">
+                    <button type="submit" class="search-button">See what's nearby</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="main-text">Why you'll love GrubHub</div>
+    <div class="three-features-grid">
+        
+        <div class="feature-one">
+            <div class="image-one"><img src="../static/feature-one.svg"></div>
+            <div class="text-one">
+                <p class="caption-feat">Something for everyone</p>
+                <p class="description-feat">We've got every meal covered and more: snacks, alcohol, dessert, paper towels...</p>
+            </div>
+        </div>
+        <div class="feature-two">
+            <div class="image-two"><img src="../static/feature-two.svg"></div>
+            <div class="text-two">
+                <p class="caption-feat">Delivery or pickup</p>
+                <p class="description-feat">Sit back and relax, have us deliver to you or skip the line with pickup.</p>
+            </div>
+        </div>
+        <div class="feature-three">
+            <div class="image-three"><img src="../static/feature-three.svg"></div>
+            <div class="text-three">
+                <p class="caption-feat">Save with GrubHub+</p>
+                <p class="description-feat">Join Grubhub+ and get unlimited $0 delivery fees, exlusive offers, and more.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="caption-picOnRight">
+        <div class="pickupOrDeliveryCaption">
+            <div class="main-pickUp">Pickup or delivery from restaurants near you</div>
+            <div class="body-pickUp">
+                Explore restaurants that deliver near you, or try yummy takeout fare. 
+                With a place for every taste, it's easy to find food you crave, 
+                and order online or through the GrubHub app. 
+                Find great meals fast with lots of local menus. 
+                Enjoy eating the convenient way with places that deliver to your door.
+            </div>
+        </div>
+        <div class="eatingTogetherPic">
+            <img src="../static/women-eating-burgers-delivery-v3.webp">
+        </div>
+    </div>
+
+    <div class="restaurant-owner-info">
+        <div class="restaurant-owner-main">
+            Restaurant Owners: Sign up with Grubhub to tap into millions of hungry customers
+        </div>
+        <div class="restaurant-owner-body">
+            Get more delivery and pickup orders from 31.5 million 
+            Grubhub customers hungry for new local restaurants. 
+            <a class="linkToSignUp" href="https://get.grubhub.com/">Sign up with GrubHub for Restaurants </a>to access hassle-free technology and 
+            marketing toools that will help you grow your business. 
+            It's easy to get started and your first 30 days are free!
+        </div>
+    </div>
+
+    <div class="aboutGrubhub">
+        <div class="aboutGrubhub-main">About Grubhub</div>
+        <div class="aboutGrubhub-body">
+            Grubhub helps you find and order food from wherever you are. 
+            How it works: you type in an address, 
+            we tell you the restaurants that deliver to that locale as well as 
+            showing you droves of pickup restaurants near you. Want to be more specific? 
+            Search by cuisine, restaurant name or menu item. We'll filter your results accordingly. 
+            When you find what you're looking for, you can place your order online or by phone, 
+            free of charge. Oh, and we also give you access to reviews, coupons, 
+            special deals and a 24/7 customer care team that tracks each order and 
+            makes sure you get exactly what you want.
+        </div>
+    </div>
+
+    <div class="blueListofLinks">
+        <div class="signUpSpecialOffers">
+            <div class="blueLinkHeaders">Sign up for special offers</div>
+            <div class="emailZipCode">Email Address</div>
+            <div class="email-entry-specialOffers"><input type="text" placeholder=" your@email.com"></div>
+            <div class="emailZipCode">Zip Code</div>
+            <div class="email-entry-specialOffers"><input type="text" placeholder=" 11111"></div>
+            <div class="countMeInButton"><button class="countInButton">Count me in!</button></div>
+        </div>
+        <div class="getToKnowUs">
+            <div class="blueLinkHeaders">Get to know us</div>
+            <br><a href="https://about.grubhub.com/about-us/overview/default.aspx">About Grubhub</a>
+            <br><a href="https://www.grubhub.com/mobile_home">Our apps</a>
+            <br><a href="https://blog.grubhub.com/?utm_source=grubhub.com_umami&utm_medium=content_owned&utm_campaign=umami_footer-link">Our blog</a>
+            <br><a href="https://bytes.grubhub.com/?utm_source=grubhub.com_umami&utm_medium=content_owned&utm_campaign=umami_footer-link">Our tech blog, Grubhub Bytes</a>
+            <br><a href="http://careers.grubhub.com/">Careers</a>
+            <br><a href="https://investors.grubhub.com/investors">Investor relations</a>
+            <br><a href="https://about.grubhub.com/media/">News</a>
+        </div>
+        <div class="usefulLinks">
+            <div class="blueLinkHeaders">Useful links</div>
+            <br><a href="https://grubhub.cashstar.com/store/buy/recipient?utm_source=www.grubhub.com%2Fgiftcards&utm_medium=content_owned&utm_campaign=useful_links">Gift cards</a>
+            <br><a href="https://www.grubhub.com/plus">Grubhub+</a>
+            <br><a href="https://www.grubhub.com/guarantee">Grubhub Guarantee</a>
+            <br><a href="https://www.grubhub.com/deals">Grubhub Perks</a>
+            <br><a href="https://www.grubhub.com/help/contact-us">Help</a>
+            <br><a href="https://www.grubhub.com/catering">Catering</a>
+            <br><a href="https://lp.grubhub.com/campus/students/?utm_source=www.grubhub.com&utm_medium=content_owned&utm_campaign=useful_links">Student discounts</a>
+            <br><a href="https://www.grubhub.com/keyboard-shortcuts">Keyboard Shortcuts</a>
+            <br><a href="https://www.grubhub.com/answers/">Answers</a>
+            <br><a href="https://lp.grubhub.com/partner/grubhub-amazon-prime/">Amazon Prime Deal</a>
+            <br><br>
+            Connect with us
+            <br><a href="https://www.facebook.com/grubhub">Facebook</a>
+            <br><a href="https://twitter.com/grubhub">Twitter/X</a>
+            <br><a href="https://www.instagram.com/grubhub/">Instagram</a>
+            <br><a href="https://www.youtube.com/user/grubhub">Youtube</a>
+        </div>
+        <div class="partnerWUS"></div>
+    </div>
+
+    <div class="copyrights">
+        <div class="copyright">
+           <hr>
+            <br>© 2024 Grubhub All rights reserved 
+        </div>
+    </div>
+   
+    
+    {% endblock %}
+
+
+</body>
+</html>

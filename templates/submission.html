@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <form method="post" action="/restaurantSubmission">
+        <div class="resSubmission">
+            <h2>Restaurant Submission Form</h2>
+
+            <div class="topSub">
+                <div class="topGrid1">
+                    <label for="resName">Restaurant Name</label><br>
+                    <input id="resName" name="resName" type="text" required>
+                    
+                </div>
+                <div class="topGrid2">
+                    <label for="resLocation">Address</label><br>
+                    <input id="resLocation" name="resLocation" type="text" required>
+                </div>
+            </div>
+
+            <div class="midSub">
+                <div class="midGrid1">
+                    <label for="resCity">City</label><br>
+                    <input id="resCity" name="resCity" type="text" required>
+                </div>
+                <div class="midGrid2">
+                    <label for="resZip">Zip code</label><br>
+                    <input type="number" id="resZip" name="resZip" required>
+                </div>   
+            </div>
+            
+            
+            <div class="bottomSub">
+                <div class="bottomGrid1">
+                    <label for="resState">State</label><br>
+                    <input id="resState" name="resState" type="text" required>
+                </div> 
+                <div class="bottomGrid2">
+                    <label for="resNumber">Number</label><br>
+                    <input id="resNumber" name="resNumber" type="tel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                </div>   
+            </div>
+            
+            <button>Submit</button>
+        </div>
+        
+
+    </form>
+    {% endblock %}
+</body>
+</html>

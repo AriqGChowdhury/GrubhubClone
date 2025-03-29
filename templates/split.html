@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Secular+One&family=Teko:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel+Decorative:wght@400;700;900&family=Fugaz+One&family=Poetsen+One&family=Secular+One&family=Teko:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let contentVisible = false;
+            let clickTimeout;
+            
+            $('.foodOptionLabel').click(function(event) {
+
+                const buttonName = $(this).attr('id');
+                const buttonText = $(this).text();
+
+                $(document).on('click', '.slide-one', function() {
+                    var restaurantName = $(this).data('display-name');
+                    restaurantClicked(restaurantName);
+                });
+                
+                $.ajax({
+                    url: "{{ url_for('foodOptionList') }}",
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        button_text: $(this).text()
+                    },
+                    success: function(response) {
+                       $('.restaurantGrid').empty();
+                       if (buttonText !== "All Restaurants") {
+                            response.restaurants.forEach(function(restaurant) {
+                            if (restaurant.regularOpeningHours.openNow) {
+                                if (restaurant.primaryType == buttonName || restaurant.primaryType == "restaurant") {
+                                    
+
+                                    var imageUrl = response.photoList[restaurant.displayName.text];
+                                    var phoneNumber = restaurant.internationalPhoneNumber ? '<a href="tel:' + restaurant.internationalPhoneNumber.substring(3) + '" id="phoneNum">' + restaurant.internationalPhoneNumber + '</a>': '';
+                                    var content = '<div class="slide-one" onclick="restaurantClicked("restaurant.displayName.text")">' + 
+                                        '<img src="' + imageUrl + '" alt="image">' + 
+                                        '<p id="displayName">' + restaurant.displayName.text + '</p>' + phoneNumber + 
+                                        '<p id="ratingNum">★' + restaurant.rating + ' (' + restaurant.userRatingCount + ')</p>' + 
+                                        '</div>';
+                                    $('.restaurantGrid').append(content);
+                                    
+                                    
+                                }
+                                
+                                
+                            }
+                                    
+                            });
+                       }
+                       else {
+                            
+                            response.restaurants.forEach(function(restaurant) {
+                                
+                                var imageUrl = response.photoList[restaurant.displayName.text];
+                                var phoneNumber = restaurant.internationalPhoneNumber ? '<a href="tel:' + restaurant.internationalPhoneNumber.substring(3) + '" id="phoneNum">' + restaurant.internationalPhoneNumber + '</a>': '';
+                                var content = '<div class="slide-one" data-display-name="' + restaurant.displayName.text + '"> ' + 
+                                    '<img src="' + imageUrl + '" alt="image">' + 
+                                    '<p id="displayName">' + restaurant.displayName.text + '</p>' + phoneNumber + 
+                                    '<p id="ratingNum">★' + restaurant.rating + ' (' + restaurant.userRatingCount + ')</p>' + 
+                                    '</div>';
+                                $('.restaurantGrid').append(content); 
+                                
+                                
+
+                            }); 
+                            
+                            
+                                
+                        }
+                                       
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+
+                
+            });
+
+            
+        });
+
+        function restaurantClicked(restaurantText, ratingVar, userRatingVar, phoneNumVar, locationVar) {
+            var url = '/' + encodeURIComponent(restaurantText) + '/menu/' + encodeURIComponent(ratingVar) + '/' + encodeURIComponent(userRatingVar) + '/' + encodeURIComponent(phoneNumVar) + '/' + encodeURIComponent(locationVar);
+            window.location.href = url;
+        }
+    </script>
+    <div class="splitGrid">
+        <div class="leftSide">
+            <iframe referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/view?key={{GOOGLE_KEY}}&center={{lat}},{{long}}&zoom=13" width="600" height="850" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <div class="rightSide">
+            <div class="foodOptions">
+                <div class="nationalPicksImage">
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/national-picks-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/sandwiches-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/chicken-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/american-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/dessert-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/hamburgers-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/soup-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/vegetarian-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/fast-food-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/seafood-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/mexican-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/kids-menu-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/breakfast-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/lunch-specials-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/pizza-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/bakery-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/healthy-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/coffee-and-tea-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/gluten-free-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/steak-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/convenience-illustration-v5.svg">
+                    </a>
+                    <a id="foodOptionImage" href="#NationalPicks">
+                        <img src="../static/grocery-illustration-v5.svg">
+                    </a>
+                </div>
+                <form method="POST" action="/foodOptionList">
+                    
+                    <button class="foodOptionLabel" type="button" id="chinese_restaurant">Chinese</button>
+                    
+                    <button class="foodOptionLabel" type="button" id="sandwich_shop">Sandwiches</button>
+                    <button class="foodOptionLabel" type="button">All Restaurants</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 8px" id="american_restauramt">American</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 16px;">Dessert</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 10px;" id="hamburger_restauramt">Hamburgers</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 14px;" id="indian_restaurant">Indian</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 15px;">Vegetarian</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 5px;" id="fast_food_restaurant">Fast Food</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 7px;">Seafood</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 19px;" id="mexican_restaurant">Mexican</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 10px;">Kids Menu</button>
+                    <button class="foodOptionLabel" type="button" id="breakfast_restaurant">Breakfast</button>
+                    <button class="foodOptionLabel" type="button" id="mediterranean_restaurant">Mediterranean</button>
+                    <button class="foodOptionLabel" type="button" id="pizza_restaurant">Pizza</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 15px;" id="bakery">Bakery</button>
+                    <button class="foodOptionLabel" type="button" style="margin-left: 19px;">Healthy</button>
+                    <button class="foodOptionLabel" type="button" id="coffee_shop">Coffee and Tea</button>
+                    <button class="foodOptionLabel" type="button" style="margin-right: 5px;">Gluten-Free</button>
+                    <button class="foodOptionLabel" type="button">Steak</button>
+                    <button class="foodOptionLabel" type="button" id="gas_station">Convenience</button>
+                    <button class="foodOptionLabel" type="button" id="supermarket">Grocery</button>
+                </form>
+
+            </div>
+            <div class="sortingOptions">
+                <button>4 Stars and Up</button>
+                <button>Offers</button>
+                <button>Within 5 mi</button>
+                <button>Grubhub+</button>
+                <button>Open Now ({{current_time}})</button>
+            </div>
+            <div class="resultSortGrid">
+                <div class="resultsNum">{{tempLen}} results</div>
+                <div class="sortOption"> <b>Sort </b>
+                    <select name="sortOptionDropdown" id="sortOptionDropdown">
+                        <option value="restaurantName">Restaurant Name</option>
+                        <option value="priceUp">Price (Ascending)</option>
+                        <option value="priceDown">Price (Descending)</option>
+                        <option value="rating">Rating</option>
+                        <option value="recommended">Recommended</option>
+                        <option value="distance">Distance</option>
+                        <option value="pickUpEstimate">PickUp Estimate</option>
+                      </select>
+                </div>
+            </div>
+            <div class="restaurantGrid">
+                {% for i in range(0,length) %}
+                    {% if restaurants[i]['regularOpeningHours'] %}
+                        {% if restaurants[i]['regularOpeningHours']['openNow'] == True %}
+                            {% set restaurantText = restaurants[i]['displayName']['text'] %}
+                            
+                            {% if restaurantText in available_restaurants %}
+                                {% set ratingVar = restaurants[i]['rating'] %}
+                                {% set userRatingVar = restaurants[i]['userRatingCount'] %}
+                                {% set phoneNumVar = restaurants[i]['internationalPhoneNumber'] %}
+                                {% set locationVar = restaurants[i]['formattedAddress'] %}
+                            {% if "'" in restaurantText %}
+                                {% set restaurantText = restaurantText.replace("'","") %}
+                            {% endif %}
+                                <div class="slide-one" onclick="restaurantClicked('{{restaurantText}}', '{{ratingVar}}', '{{userRatingVar}}', '{{phoneNumVar}}', '{{locationVar}}')">
+                                    
+                                    <img src="{{photoList[restaurants[i]['displayName']['text']]}}" alt="image">
+                                    <p id="displayName">{{restaurants[i]['displayName']['text']}}</p>
+                                    <script>
+                                        let disPlay = document.getElementById('displayName').textContent;
+                                        console.log(disPlay);
+                                    </script>                                    
+                                    {% if restaurants[i]['internationalPhoneNumber'] %}
+                                        <a href="{{restaurants[i]['internationalPhoneNumber'][3:]}}" id="phoneNum">{{restaurants[i]['internationalPhoneNumber']}}</a>
+                                    {% endif %}
+                                    <p id="ratingNum">★{{restaurants[i]['rating']}} ({{restaurants[i]['userRatingCount']}})</p>
+                                </div>
+                            {% endif %}
+                        {% endif %} 
+                    {% endif %}
+                {% endfor %}
+
+                
+                <!-- data:image/jpeg;base64 -->
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+
+    {% endblock %}
+</body>
+</html>

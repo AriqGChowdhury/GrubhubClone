@@ -1,0 +1,1318 @@
+.search-button {
+    border-radius: 20px;
+    color: white;
+    background-color: #572af8;
+    width: 22.745%;
+    line-height: 250%;
+    margin-left: 15px;
+    font-size: medium;
+    border: none;
+    
+}
+
+@media (max-width: 600px) {
+    .search-button {
+        border-radius: 20px;
+        color: white;
+        background-color: #572af8;
+        width: 190px;
+        margin-top: 2%;
+        line-height: 250%;
+        margin-left: 25%;
+        font-size: medium;
+        border: none;
+        
+    }
+}
+
+.search-button:hover {
+    cursor: pointer;
+}
+
+.grid-index {
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+.homescreen-label, .address-entry-input {
+    margin-top: 2%;
+    align-self: center;
+    justify-self: center;
+}
+
+.homescreen-label {
+
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    word-spacing: 15px;
+    font-size: 68px;
+    font-weight: 600;
+    margin-top: 200px;
+
+}
+
+@media (max-width: 600px) {
+    .homescreen-label {
+
+        font-family: 'Secular One', sans-serif;
+        font-family: 'Teko', sans-serif;
+        word-spacing: 15px;
+        font-size: 40px;
+        font-weight: 600;
+        margin-top: 200px;
+        margin-left: 13%;
+        
+    }
+}
+
+.search-address {
+    font-size: 90%;
+    line-height: 40px;
+    text-align: center;
+    border: none;
+}
+
+@media (max-width: 600px){
+    .search-address {
+        font-size: 90%;
+        line-height:40px;
+        text-align: center;
+        width: 70%;
+        border: none;
+        margin-left: 12%;
+    }
+}
+
+.background {
+    
+    margin-left: -8px;
+    margin-right: -8px;
+    background-image: url('./sushi_homepage1.webp');
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 920px;
+    background-size: cover;
+}
+
+.main-text {
+    text-align: center;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    margin-top: 10px;
+    font-size: 55px;
+    font-weight: 600;
+    word-spacing: 8px;
+}
+
+@media (max-width: 600px) {
+    .main-text, .three-features-grid, .feature-one, .feature-two, .feature-three, .pickupOrDeliveryCaption, .eatingTogetherPic, .restaurant-owner-main, .aboutGrubhub-body, .aboutGrubhub, .blueListofLinks, .restaurant-owner-info, .restaurant-owner-body  {
+        display: none;
+    }
+}
+
+
+.three-features-grid {
+    margin-left: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.caption-feat {
+
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+.description-feat {
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 140px;
+    text-align: center;
+    font-family: "Barlow", sans-serif;
+}
+
+.image-one, .image-two, .image-three, .caption-feat {
+    margin-left: 25px;
+}
+
+.caption-picOnRight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+
+.main-pickUp {
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    width: 450px;
+}
+
+.body-pickUp {
+    width: 450px;
+    font-size: 18px;
+    font-family: "Barlow", sans-serif;
+}
+
+.pickupOrDeliveryCaption {
+    margin-left: 165px;
+}
+
+
+.restaurant-owner-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 70px;
+}
+
+.restaurant-owner-main {
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    width: 440px;
+    margin-left: 140px;
+}
+
+.restaurant-owner-body {
+    font-size: 105%;
+    width: 580px;
+    font-family: "Barlow", sans-serif;
+}
+
+.linkToSignUp {
+    text-decoration: none;
+}
+
+.aboutGrubhub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #efefef;
+    margin-top: 45px;
+    height: 200px;
+}
+
+.aboutGrubhub-main {
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    font-size: 31px;
+    font-weight: 600;
+    margin-top: 75px;
+    margin-left: 140px;
+}
+
+.aboutGrubhub-body {
+    margin-top: 25px;
+    width: 540px;
+    font-family: "Barlow", sans-serif;
+}
+
+.blueListofLinks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: #545470;
+    color: white;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+}
+
+.getToKnowUs a, .usefulLinks a {
+    color: white;
+    display: inline-block;
+    margin-top: 5px;
+    text-decoration: none;
+    
+}
+
+.getToKnowUs a:hover, .usefulLinks a:hover {
+    text-decoration: underline;
+}
+
+.blueLinkHeaders {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.emailZipCode {
+    margin-top: 27px;
+    font-size: 18px;
+}
+
+.signUpSpecialOffers {
+    margin-left: 55px;
+}
+
+.email-entry-specialOffers input {
+    border-radius: 4px;
+    background-color: #545470;
+    width: 200px;
+    height: 25px;
+    border-style: solid;
+    border-color: white;
+    outline: none;
+    margin-top: 4px;
+}
+
+.email-entry-specialOffers ::placeholder {
+    color: rgba(255, 255, 255, 0.71);
+   
+}
+
+.email-entry-specialOffers :focus {
+    color: white;
+}
+
+.email-entry-specialOffers::-webkit-input-placeholder {
+    color: white;
+}
+
+.countMeInButton button {
+    margin-top: 20px;
+    border-radius: 4px;
+    border-style: solid;
+    border: none;
+    background-color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.countMeInButton button:hover {
+    background-color: rgb(194, 189, 189);
+    cursor: pointer;
+}
+
+.copyright {
+    background-color: #545470;
+    color: white;
+    margin-left: 20px;
+}
+
+.copyrights {
+    background-color: #545470;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.copyright hr {
+    margin: 0;
+    color: grey;
+    border-style: solid;
+    margin-left: 30px;
+    margin-right: 50px;
+}
+
+.splitGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fafafa;
+}
+
+.foodOptions {
+    height: 130px;
+    overflow-x: hidden scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 650px;
+
+}
+
+.sortingOptions {
+    height: 80px;
+}
+
+
+
+.foodOptions a {
+    display: inline-block;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+.foodOptions button {
+    border: none;
+    border-style: none;
+    padding: 14px;
+    background-color: #fafafa;
+    margin-left: 6px;
+}
+
+.foodOptions button:hover {
+    cursor: pointer;
+}
+
+.foodOptions button:focus {
+    background-color: rgb(226, 225, 225);
+    border-radius: 15px;
+    
+}
+
+/* 
+   WORK ON BACKGROUND WHEN BUTTON CLICKED
+   WORK ON cancelling changes when button clicked 
+
+*/
+
+#foodOptionImage {
+    margin-left: 30px;
+}
+
+#foodOptionLabel {
+    margin-right: 5px;
+}
+
+.sortingOptions button {
+    border-radius: 20px;
+    margin-right: 8px;
+    margin-left: 5px;
+    height: 35px;
+    padding: 15px 20px;
+    margin-top: 20px;
+    background-color: white;
+    border-width: thin;
+    border-color: lightgrey;
+    border-style: solid;
+    line-height: 3px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    
+}
+
+.sortingOptions button:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+}
+
+.resultSortGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 50px;
+}
+.sortOption {
+    text-align: right;
+    font-family: "Barlow", sans-serif;
+    font-size: 13px;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.resultsNum {
+    font-family: "Barlow", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 8%;
+}
+
+.restaurantGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.slide-one {
+    margin-bottom: 3%; 
+}
+
+.slide-one img {
+    border-radius: 12px;
+    height: 48%;
+    width: 90%;
+    margin-right: 4%;
+    margin-bottom: -5%;
+   
+}
+
+
+
+.slide-one #displayName {
+    margin-left: 5%;
+    font-family: "Barlow", sans-serif;
+    font-weight: 550;
+    margin-bottom: -5px;
+    cursor: pointer;
+}
+
+.slide-one a {
+    margin-left: 5%;
+    font-family: "Barlow", sans-serif;
+    font-size: 11px;
+    
+}
+
+#ratingNum {
+    font-family: "Barlow", sans-serif;
+    margin-left: 15px;
+    margin-top: -2px;
+}
+
+.leftSide {
+    overflow: hidden;
+    padding-bottom:56.25%;
+    position: relative;
+    height:532px;
+    margin-right: 20px;
+    
+}
+
+.leftSide iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position: absolute;
+}
+
+.rightSide {
+    overflow-y: auto;
+    height: 900px;
+}
+
+.logInGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 780px;
+
+}
+
+.logInTab {
+    background-color: white;
+    height: 500px;
+    width: 380px;
+    /* align-self: center; */
+    justify-self: center;
+    margin-top: 20px;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(234, 234, 234);
+}
+
+.signInPrompt {
+    font-weight: 600;
+    font-size: 22px;
+    margin-top: 20px;
+    width: 280px;
+    margin-left: 25px;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+}
+
+.emailSignIn, .passSignIn {
+    margin-left: 25px;
+}
+
+.emailSignIn input, .passSignIn input {
+    width: 320px;
+    height: 32px;
+    outline-color: rgb(76, 29, 187);
+}
+
+.emailSignIn p, .passSignIn p {
+    margin-bottom: -0.2px;
+    font-size: 15px;
+    color: #6b6b83;
+}
+
+/* add font to this */
+.login_checkBox {
+    margin-left: 25px;
+    margin-top: 35px;
+}
+
+.resetPass {
+    margin-left: 60px;
+    text-decoration: none;
+}
+
+.logInButton {
+    margin-top: 60px;
+    margin-left: 25px;
+}
+.logInButton button {
+    border-radius: 15px;
+    width: 324px;
+    background-color: #572af8;
+    color: white;
+    height: 30px;
+    border: none;
+}
+
+.logInButton button:hover {
+    cursor: pointer;
+}
+
+.createAccount a {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 120px;
+    
+    
+}
+
+.signUpGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 780px;
+    background-color: rgb(251, 251, 251);
+}
+
+.signUpTab {
+    background-color: white;
+    height: 700px;
+    width: 420px;
+    /* align-self: center; */
+    justify-self: center;
+    margin-top: 20px;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(234, 234, 234);
+}
+
+.signUpPrompt {
+    font-weight: 600;
+    font-size: 22px;
+    margin-top: 20px;
+    width: 280px;
+    margin-left: 35px;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+}
+
+.signUpName {
+    margin-left: 35px;
+    margin-top: 25px;
+    color: #6b6b83;
+}
+
+
+.signUpName input {
+    width: 160px;
+    height: 35px;
+}
+
+.secondNameInput, .lNameSignUp {
+    margin-left: -20px;
+}
+
+.emailSignUp, .passSignUp {
+    margin-left: 35px;
+    margin-top: 25px;
+    color: #6b6b83;
+}
+
+.emailSignUp input, .passSignUp input {
+    height: 35px;
+    width: 335px;
+    margin-top: -15px;
+}
+
+.mustInclude {
+    margin-left: 35px;
+    font-size: 15px;
+    margin-top: 25px;
+    color: #6b6b83;
+}
+
+.mustInclude li::marker {
+    color: grey;
+}
+
+.checkboxSignUp {
+    margin-left: 35px;
+    margin-top: 25px;
+    color: #6b6b83;
+}
+
+.signUpButton {
+    margin-left: 35px;
+    margin-top: 40px;
+}
+
+.signUpButton button {
+    border-radius: 15px;
+    width: 324px;
+    background-color: #572af8;
+    color: white;
+    height: 30px;
+    border: none;
+}
+
+.alreadyAccount {
+    margin-left: 85px;
+    margin-top: 40px;
+}
+
+.alreadyAccount a {
+    text-decoration: none;
+    color: #572af8;
+    font-weight: 600;
+}
+
+
+.navBar {
+    font-size: large;
+    display: grid;
+    grid-template-columns: 1fr 25% 3% 5%;
+    height: 4rem;
+}
+
+.home i {
+    margin-left: 2%;
+    font-size: x-large;
+    color: #EB8217;
+    margin-top: 1.8%;
+}
+
+.cart i {
+    margin-left: 2%;
+    font-size: x-large;
+    margin-top: 40%;
+    color: black;
+}
+
+.profile i {
+    margin-left: 2%;
+    font-size: x-large;;
+    margin-top: 23%;
+    color: black;
+}
+
+
+.signUpLogIn a {
+    color: #000000;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 2%;
+}
+
+@media (max-width: 600px) {
+    .signUpLogIn a {
+        color: #000000;
+        text-decoration: none;
+        border: 2px solid black;
+        border-radius: 12px;
+        padding: 2%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .signUpLogIn a {
+        color: #000000;
+        text-decoration: none;
+        border: 2px solid black;
+        border-radius: 12px;
+        padding: 2%;
+        font-size: 8px;
+    }
+}
+
+.signUpLogIn p {
+    color: #000000;
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 2%;
+    margin-top: -2%;
+    width: 40%;
+    
+}
+
+.signUpLogIn a:hover {
+    color: white;
+    background-color: black;
+
+}
+
+.signUpLogIn {
+    margin-top: 5%;
+}
+
+.headerDisplay {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.header {
+    align-self: center;
+    justify-self: center;
+    background-image: url('/static/mcdonalds_images/mcdonalds_header.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 250px;
+    width: 1000px;
+    border-radius: 12px;
+}
+
+
+
+.header img {
+    margin-top: 190px;
+    margin-left: 910px;
+    height: 50px;
+    width: 60px;
+    border-radius: 30px;
+
+}
+
+.header-title {
+    margin-left: 250px;
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 32px;
+}
+
+.selectedUserRating {
+    margin-left: 250px;
+
+}
+
+.categoryGrid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 250px;
+}
+
+.category a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    margin-right: 5px;
+    
+}
+
+.category {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+}
+.category a:hover {
+    cursor: pointer;
+}
+.category a:focus {
+    text-decoration: underline;
+    text-decoration-color: #572af8;
+    text-underline-offset: 4px;
+}
+
+.viewMenuGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 250px;
+    width: 1000px;
+}
+
+.left_category {
+    position: sticky;
+    top: 0; 
+    width: 200px;
+    /* top: 370px;
+    left: 260px;
+    width: 200px; */
+}
+
+#about_section {
+    color: white;
+    height: 300px;
+    margin-top: 80px;
+}
+
+#reviews {
+    height: 1000px;
+    color: black;
+    margin-left: 250px;
+}
+
+.right_menu_grid {
+    margin-left: 20%; 
+    margin-top: -70px;
+    
+    display: grid;
+    grid-template-columns: 380px 1fr;
+
+
+}
+
+.right_menu_grid img {
+    margin-left: 239px;
+    width: 130px;
+    border-radius: 0 10px 0 0;
+    position: absolute;
+}
+
+.foodItemDiv {
+    position: relative;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(234, 234, 234);
+    width: 370px;
+    height: 150px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    cursor: pointer; 
+    
+}
+
+#overlayPopUp {
+    display: none;
+    position: fixed;  
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+
+
+#foodModal {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 500px;
+    width: 450px;
+    height: 100%;
+    z-index: 1001;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 6px;
+    color: black;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    width: 100%;
+}
+
+
+
+#close {
+    color: #000000;
+    float: right;
+    font-weight: bold;
+    background-color: rgb(145, 145, 145);
+    border-radius: 6px;
+    text-align: center;
+    width: 20px;
+    
+}
+
+#close:hover, #close:focus {
+    
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+#close2 {
+    color: #000000;
+    float: right;
+    font-weight: bold;
+    background-color: rgb(145, 145, 145);
+    border-radius: 6px;
+    text-align: center;
+    width: 20px;
+    
+}
+
+#close2:hover, #close2:focus {
+    
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+#close3 {
+    color: #000000;
+    float: right;
+    font-weight: bold;
+    background-color: rgb(145, 145, 145);
+    border-radius: 6px;
+    text-align: center;
+    width: 20px;
+    
+}
+
+#close3:hover, #close3:focus {
+    
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+#addToCart {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+}
+
+.categoryTitle {
+    grid-column: 1 / -1; 
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nameFood {
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 15px;
+    margin-top: 20px;
+    width: 200px;
+}
+
+.calAmt {
+    margin-left: 15px;
+    margin-bottom: 40px;
+}
+
+.priceAmt {
+    margin-left: 240px;
+    margin-top: -40px;
+    width: 50px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    position: absolute; 
+    top: 50px; 
+    right: 10px; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    
+}
+
+#about_section h4, #about_section p {
+    color: black;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    margin-left: 250px;
+}
+
+#about_section h4 {
+    font-size: 25px;
+}
+
+
+.optionView1, .optionView2, .optionView3, .optionView4, .optionView5, .whichRestaurant {
+    user-select: none;
+    z-index: -1;
+}
+
+.marginFoodItems {
+    margin-left: 10px;
+    padding: 20px;
+}
+
+#itemName {
+    text-align: center;
+    /* background-color:rgb(60, 60, 176); */
+    border-radius: 6px;
+    color: black;
+    width: 29%;
+    padding: 4px;
+    font-weight: 600;
+    font-size: 25px;
+    margin-left: 150px;
+}
+
+#itemCalAmt {
+    margin-bottom: -10px;
+    font-weight: 600;
+}
+
+#itemPriceAmt {
+    text-align: center;
+    padding: 4px;
+    border-radius: 6px;
+    width: 12%;
+    color: black;
+    /* background-color:rgb(60, 60, 176); */
+    margin-top: -19px;
+    margin-left: 177px;
+    font-size: 18px;
+}
+
+
+.cartItems {
+    font-size: x-large;
+    margin-left: 3%;
+}
+.calItems {
+    margin-left: 80%;
+    margin-top: -3%;
+}
+
+.priceItems {
+    margin-left: 50%;
+    margin-top: -3%;
+    padding-left: 10px;
+}
+
+.totalCart {
+    text-align: right;
+    margin-right: 15%;
+
+}
+
+.payNow {
+    text-align: right;
+    margin-right: 14.5%;
+    margin-top: 1%;
+}
+.payNow a {
+   text-decoration: none; 
+   border: 2px solid #EB8217;
+   color: #EB8217;
+   padding: 3px;
+   border-radius: 12px;
+}
+
+.payNow a:hover {
+    color: white;
+    background-color: #EB8217;
+
+}
+
+#current_cart {
+    margin-left: 25%;
+    border: 2px solid black;
+    width: 50%;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.emptyCart {
+    background-color: red;
+    color: white;
+}
+
+
+
+#settingsModal {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    width: 35%;
+    height: 90%;
+    z-index: 1001;
+}
+
+#deleteAccountModal {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    width: 35%;
+    height: 90%;
+    z-index: 1001;
+}
+
+#deleteAccount button {
+    border: none;
+    background-color: white;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    color: black;
+    font-size: 100%;
+    margin-left: -1.5%;
+}
+
+#deleteAccount button:hover {
+    cursor: pointer;
+}
+
+.changePass button {
+    border: none;
+    background-color: white;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    color: black;
+    font-size: 100%;
+    margin-left: -1.8%;
+}
+
+.changePass button:hover {
+    cursor: pointer;
+}
+
+#changePassword {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    width: 35%;
+    height: 90%;
+    z-index: 1001;
+}
+
+.modal-content2 {
+    background-color: white;
+    border-radius: 6px;
+    color: black;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    width: 90%;
+}
+
+.marginSettingItems {
+    margin-left: 5%;
+    padding: 5%;
+    
+   
+}
+
+.marginSettingItems a {
+    text-decoration: none;
+    color: black;
+}
+
+.resSubmission {
+    text-align: center;
+    border: solid 2px black;
+    border-radius: 12px;
+    padding: 10%;
+    width: 65%;
+    margin-left: 7%;
+}
+
+.resSubmission h2 {
+    margin-bottom: 10%;
+
+}
+
+.resSubmission button {
+    margin-top: 3%;
+}
+
+.topSub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2%;
+}
+.midSub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2%;
+}
+.bottomSub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.topSub label, .midSub label, .bottomSub label {
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    font-weight: 600;
+}
+
+.topSub input, .midSub input, .bottomSub input {
+    margin-top: 1%;
+    border-radius: 6px;
+    border: solid;
+    padding: 1%;
+}
+
+.likedRestaurants a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    border: solid 1px black;
+    border-radius: 6px;
+    padding: 1%;
+}
+
+.profileGrid {
+    text-align: center;
+}
+
+.settings button {
+    border: solid 1px black;
+    border-radius: 6px;
+    margin-top: 2%;
+    background-color: white;
+    font-size: 1rem;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    padding: 1%;
+    width: 11.5%;
+}
+
+.settings button:hover {
+    cursor: pointer;
+}
+
+.logout a {
+    margin-bottom: -2%;
+    text-decoration: none;
+    color: black;
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    border: solid 1px black;
+    border-radius: 6px;
+    padding: 1%;
+}
+
+.logout {
+    margin-top: 2%;
+}
+
+.res_display_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.liked_res_display {
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    font-size: large;
+    border: solid 2px black;
+    width: 40%;
+    padding: 1%;
+    border-radius: 12px;
+    text-align: center;
+    margin-left: 28%;
+}
+
+.res_header {
+    font-family: 'Secular One', sans-serif;
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+}
+
+#likeButton {
+    margin-left: 91.4%;
+    margin-top: 2%;
+    border: 2px black solid;
+    background-color: white;
+    padding: 0.5%;
+    border-radius: 12px;
+    
+}
+
+#likeButton:hover {
+    cursor: pointer;
+}
+
+.container {
+    margin-top: -2%;
+}

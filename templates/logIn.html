@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Secular+One&family=Teko:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel+Decorative:wght@400;700;900&family=Fugaz+One&family=Poetsen+One&family=Secular+One&family=Teko:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+        <div class="logInGrid" style="background-color: rgb(251, 251, 251);">
+            
+            <div class="logInTab">
+                <div class="signInPrompt">Sign in with your GrubHub account</div>
+                <form method="POST" action="/verifyLogin">
+                    <div class="emailSignIn">
+                        <p>Email</p>
+                        <input type="email" name="email">
+                    </div>
+                    <div class="passSignIn">
+                        <p>Password</p>
+                        <input type="password" name="password">
+                        {% if invalid %}
+                            <p style="color: red;">Email or password is incorrect!</p>
+                        {% endif %}
+                    </div>
+
+                
+
+                    <div class="login_checkBox">
+                        Keep me signed in
+                        <input type="checkbox" name="checkbox">
+                        <a class="resetPass" href="https://google.com">Reset Password</a>
+                    </div>
+
+                    <div class="logInButton">
+                        <button type="submit">Sign In</button>
+                    </div>
+                </form>
+                <div class="createAccount">
+                    <a href="{{url_for('signUp')}}">Create your account</a>
+                </div>
+            </div>
+
+            
+
+        </div>
+    {% endblock %}
+</body>
+</html>

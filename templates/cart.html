@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function clearCart(cartItems) {
+            let currentCart = document.getElementById('current_cart');
+            currentCart.innerHTML = "";
+            fetch('/delete_cart', {
+                method: 'GET',  
+            }).then(response => response.json())
+            window.setTimeout( function() {
+                window.location.reload();
+            }, 30);
+            
+        }
+        
+    </script>
+
+
+    {% extends 'base.html' %}
+    {% block content %}
+        {% if cartItems %}
+            <div id="current_cart">
+                {% for items in cartItems %}
+                    {% if "cal" in items %} 
+                        <div class="calItems">{{items}}</div>
+                    {% elif "." in items %} 
+                        <div class="priceItems">{{items}}</div>
+                    {% else %}
+                        <div class="cartItems">{{items}}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="totalCart"><strong>Total: ${{total}}</strong></div>
+            <div class="payNow"><a href="{{url_for('checkOut', items=cartItems, total=total)}}">Place Order ></a></div>
+            <button class="emptyCart" onclick=clearCart()>Empty Cart</button>
+        {% else %}
+            <h2 style="font-family: 'Secular One', sans-serif;font-family: 'Teko', sans-serif; text-align: center;">Cart is empty</h2>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>

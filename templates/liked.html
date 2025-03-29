@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+        <h2 class="res_header">Liked Restaurants</h2>
+        <div class="res_display_grid">
+           {% for restaurant in restaurants %}
+                {% if restaurants == "" %}
+                    <p>No liked restaurants</p>
+                {% else %}
+                
+                    <div class="liked_res_display">{{restaurant}}</div>
+                {% endif %}
+            {% endfor %} 
+        </div>
+        
+    {% endblock %}
+</body>
+</html>

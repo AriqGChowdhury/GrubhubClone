@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+        <div id="newPassDiv"></div>
+        <form>
+           <p>New Password</p>
+            <input  type="password" id="newPass" autocomplete="new-password" required minlength="8" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$">
+            <p>Confirm New Password</p>
+            <input type="password" autocomplete="new-password" id="confirmNewPass" required minlength="8" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$"> 
+            <br><br><button type="button" onclick="ifMatch(event)">Submit</button>
+            <div class="mustInclude">
+                Must Include:
+                <li>8 characters minimum</li>
+                <li>Uppercase letter</li>
+                <li>Lowercase letter</li> 
+                <li>Special character</li>
+                <li>Number</li>
+            </div>  
+        </form>
+               
+        
+
+
+        <script>
+            function ifMatch(event) {
+                let first = document.getElementById('newPass');
+                let second = document.getElementById('confirmNewPass');
+                let newPassDiv = document.getElementById('newPassDiv');
+
+                newPassDiv.innerHTML = "";
+                if (!first.checkValidity() || !second.checkValidity()) {
+                    console.log("in here");
+                    newPassDiv.innerHTML += `<p style="color:red;"> Password must follow format </p>`; 
+                    event.preventDefault();
+                    
+                    return;
+                }
+
+                
+                if (second.value != first.value ) {
+                    newPassDiv.innerHTML += `<p style="color:red;"> Passwords do not match! </p>`;
+                }
+                else {
+                    newPassDiv.innerHTML += `<p style="color:green;"> Password updated! </p>`;
+                    fetch(`/passChange`, { 
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: first.value })
+                    });
+                }
+            }
+        </script>
+    {% endblock %}
+</body>
+</html>

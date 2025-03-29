@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+</head>
+<body>
+    <div class="navBar">
+        <div class="home">
+            <a  href="{{url_for('home')}}"> 
+                <i class="fa fa-home fa-6" aria-hidden="true"></i>
+            </a>
+        </div>
+        {% if not user %}
+            <div class="signUpLogIn">
+                <a href="{{url_for('preLogIn')}}">Sign up / Log in</a>
+            </div>
+        {% else %}
+            <div class="signUpLogIn">
+
+                <p>Hello, {{user.split(" ")[0]}}</p>
+            </div>
+            <div class="cart">
+                <a href="{{url_for('cart')}}">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                
+            </div>
+            <div class="profile">
+                <a href="{{url_for('profile')}}">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+            </div>
+        {% endif %}
+        
+        
+    </div>
+    
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            const modal = document.getElementById("foodModal");
+            const closeModal = document.getElementById("close");
+            const addToCartButton = document.getElementById("addToCart");
+            let foodText = "";
+            let calFoodText = "";
+            let priceFoodText = "";
+            let cart_list = [];
+            let cheeseCart = "";
+            let sauceCart = "";
+            let potatoCart = "";
+            let drinkCart = "";
+            let drink2Cart = "";
+            
+
+            $(document).ready(function() {
+                $(".foodItemDiv").click(function(event) {
+                    foodText = $(this).find(".nameFood").text();
+                    calFoodText = $(this).find(".calAmt").text();
+                    priceFoodText = $(this).find(".priceAmt").text();
+                    const optionFoodText = $(this).find(".optionView1").text();
+                    const optionSauceText = $(this).find(".optionView2").text();
+                    const optionPotatoText = $(this).find(".optionView3").text();
+                    const optionDrinkText = $(this).find(".optionView4").text();
+                    const optionDrink2Text = $(this).find(".optionView5").text();
+                    const whichRestaurant = $(this).find(".whichRestaurant").text();
+                    console.log(optionPotatoText);
+                    console.log(optionDrink2Text);
+                    let option1 = [];
+                    let option2 = [];
+                    let option3 = [];
+                    let option4 = [];
+                    let option5 = [];
+                    let string1 = '';
+                    let string2 = '';
+                    let string3 = '';
+                    let string4 = '';
+                    let string5 = '';
+                    $('#itemCheeseOptions').empty(); 
+                    $('#itemSauceOptions').empty();
+                    $('#itemPotatoOptions').empty();
+                    $('#itemDrinkOptions').empty();
+                    $('#itemDrink2Options').empty();
+
+                    for (let i=0; i < optionFoodText.length; i++) {
+                        string1 += optionFoodText[i];
+                        if (optionFoodText[i] == ']' || optionFoodText[i] == ',') {
+                            option1.push(string1.trim());
+                            string1 = '';
+                        }
+                    }
+
+                    for (let i=0; i < optionSauceText.length; i++) {
+                        string2 += optionSauceText[i];
+                        if (optionSauceText[i] == ']' || optionSauceText[i] == ',') {
+                            option2.push(string2.trim());
+                            string2 = '';
+                        }
+                    }
+
+                    for (let i=0; i < optionPotatoText.length; i++) {
+                        string3 += optionPotatoText[i];
+                        if (optionPotatoText[i] == ']' || optionPotatoText[i] == ',') {
+                            option3.push(string3.trim());
+                            string3 = '';
+                        }
+                    }
+
+                    for (let i=0; i < optionDrinkText.length; i++) {
+                        string4 += optionDrinkText[i];
+                        if (optionDrinkText[i] == ']' || optionDrinkText[i] == ',') {
+                            option4.push(string4.trim());
+                            string4 = '';
+                        }
+                    }
+
+                    for (let i=0; i < optionDrink2Text.length; i++) {
+                        string5 += optionDrink2Text[i];
+                        if (optionDrink2Text[i] == ']' || optionDrink2Text[i] == ',') {
+                            option5.push(string5.trim());
+                            string5 = '';
+                        }
+                    }
+
+                    if (optionFoodText != '') {
+                        $('#itemCheeseOptions').empty(); 
+                        $('#itemCheeseOptions').text('Cheese');
+                        $('#itemCheeseOptions').append('<br>');
+                    }
+                    
+                    for (let options of option1) {
+                        
+                        let newOptions = options.replaceAll(',', "");
+                        let newOptions1 = newOptions.replaceAll('[', "");
+                        let newOptions2 = newOptions1.replaceAll(']', "");
+                        let newOptions3 = newOptions2.replaceAll("'", "");
+                        let radio = `<label><input type="radio" name="cheeseOptions" value="${newOptions3}"> ${newOptions3}</label><br>`;
+                        $('#itemCheeseOptions').append(radio);
+                    }
+
+                    if (optionSauceText != '') {
+                        $('#itemSauceOptions').empty();
+                        $('#itemSauceOptions').text('Sauces');
+                        $('#itemSauceOptions').append('<br>');
+                    }
+
+                    for (let options of option2) {
+                       
+                        let newOptions = options.replaceAll(',', "");
+                        let newOptions1 = newOptions.replaceAll('[', "");
+                        let newOptions2 = newOptions1.replaceAll(']', "");
+                        let newOptions3 = newOptions2.replaceAll("'", "");
+                        
+                        let checkbox = `<label><input type="checkbox" value="${newOptions3}"> ${newOptions3}</label><br>`;
+                        $('#itemSauceOptions').append(checkbox);
+                    }
+
+                    if (optionPotatoText != '') {
+                        $('#itemPotatoOptions').empty();
+                        if (whichRestaurant == "Taco Bell") {
+                            $('#itemPotatoOptions').text('Potato');
+                        }
+                        if (whichRestaurant == "McDonalds") {
+                            $("#itemPotatoOptions").text('Side');
+                        }
+                        
+                        $('#itemPotatoOptions').append('<br>');
+                    }
+                    
+                    for (let options of option3) {
+                       
+                        let newOptions = options.replaceAll(',', "");
+                        let newOptions1 = newOptions.replaceAll('[', "");
+                        let newOptions2 = newOptions1.replaceAll(']', "");
+                        let newOptions3 = newOptions2.replaceAll("'", "");
+                        let radio = `<label><input type="radio" name="potatoOptions" value="${newOptions3}"> ${newOptions3}</label><br>`;
+                        $('#itemPotatoOptions').append(radio);
+                    }
+
+                    
+                    if (optionDrinkText != '') {
+                        $('#itemDrinkOptions').empty();
+                        $('#itemDrinkOptions').text('Size');
+                        $('#itemDrinkOptions').append('<br>');
+                    }
+
+                    for (let options of option4) {
+                        
+                        let newOptions = options.replaceAll(',', "");
+                        let newOptions1 = newOptions.replaceAll('[', "");
+                        let newOptions2 = newOptions1.replaceAll(']', "");
+                        let newOptions3 = newOptions2.replaceAll("'", "");
+                        let radio = `<label><input type="radio" name="drinkOptions" value="${newOptions3}"> ${newOptions3}</label><br>`;
+                        $('#itemDrinkOptions').append(radio);
+                    }
+
+                    if (optionDrink2Text != '') {
+                        $('#itemDrink2Options').empty();
+                        $('#itemDrink2Options').text('Drinks');
+                        $('#itemDrink2Options').append('<br>');
+                    }
+
+                    for (let options of option5) {
+                        
+                        let newOptions = options.replaceAll(',', "");
+                        let newOptions1 = newOptions.replaceAll('[', "");
+                        let newOptions2 = newOptions1.replaceAll(']', "");
+                        let newOptions3 = newOptions2.replaceAll("'", "");
+                        let radio = `<label><input type="radio" name="drink2Options" value="${newOptions3}"> ${newOptions3}</label><br>`;
+                        $('#itemDrink2Options').append(radio);
+                    }
+                    
+                    cheeseCart = document.getElementById("itemCheeseOptions").textContent;
+                    sauceCart = document.getElementById("itemSauceOptions").innerHTML;
+                    potatoCart = document.getElementById("itemPotatoOptions").innerHTML;
+                    drinkCart = document.getElementById("itemDrinkOptions").innerHTML;
+                    drink2Cart = document.getElementById("itemDrink2Options").innerHTML;
+                    
+                    $("#itemName").text(foodText);
+                    $("#itemCalAmt").text('(' + calFoodText + ')');
+                    $("#itemPriceAmt").text(priceFoodText);
+                    $("#foodModal").show();
+                    $("#overlayPopUp").show();
+                });
+
+                $("#close").click(function () {
+                    $("#foodModal").hide();
+                    $("#overlayPopUp").hide();
+                });
+
+        
+                
+            });
+
+            function buttonClicked() {
+                $("#foodModal").hide();
+                $("#overlayPopUp").hide();
+                cheeseCart = "";
+                sauceCart = "";
+                potatoCart = "";
+                drinkCart = "";
+                drink2Cart = "";
+
+                cheeseCart = getSelectedOption("itemCheeseOptions");
+    
+    
+                sauceCart = getSelectedOptions("itemSauceOptions");
+                
+              
+                potatoCart = getSelectedOption("itemPotatoOptions");
+                
+                
+                drinkCart = getSelectedOption("itemDrinkOptions");
+                drink2Cart = getSelectedOption("itemDrink2Options");
+
+
+                cart_list.push(foodText, priceFoodText, calFoodText, cheeseCart, sauceCart, potatoCart, drink2Cart, drinkCart, ",");
+                console.log(cart_list);
+                console.log(foodText, priceFoodText, calFoodText);
+                fetch(`/receive_cart?data=${cart_list}`, { 
+                    method: 'GET',
+                    })
+                    .then(response => response.text());
+                cart_list.length = 0;
+                
+            }
+
+            function getSelectedOption(containerId) {
+                const selected = document.querySelector(`#${containerId} input:checked`);
+                return selected ? selected.value : null; 
+            }
+
+            function getSelectedOptions(containerId) {
+                const selectedOptions = [];
+                const checkboxes = document.querySelectorAll(`#${containerId} input:checked`);
+                checkboxes.forEach(checkbox => {
+                    selectedOptions.push(checkbox.value);
+                });
+                return selectedOptions; 
+            }
+
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+
+            function addToLiked(name, location) {
+                console.log(name, location);
+                fetch(`/addToLiked?data=${name + ' ' + location}`, { 
+                    method: 'POST',
+                    })
+                    .then(response => response.text());
+            }
+
+            function unlike(name, location) {
+                document.getElementById('likeButton').innerHTML = "Like";
+                fetch(`/unlike?data=${name + ' ' + location}`, { 
+                    method: 'POST',
+                    })
+                    .then(response => response.text());
+            }
+
+// WORK ON RESPONSIVE WEBSITE
+// FIXED PRECISION ON CART TOTAL
+// FIX LIKE AND BACK ON RESTAURANT MENUS
+        </script>
+        <div class="headerDisplay">
+            <div class="header" style="background-image: url('{{header_info}}');">
+                {% if liked %}
+                    <button onclick="unlike('{{restaurantName}}','{{locationVar}}')" id="likeButton">Unlike</button>
+                {% else %}
+                    <button onclick="addToLiked('{{restaurantName}}','{{locationVar}}')" id="likeButton">Like</button>
+                {% endif %}
+                    <div class="container">
+                   <img src="{{url_for('static', filename=iconImgUrl)}}"> 
+                </div>
+            </div>
+
+            <section id="categoryScoll"></section>
+            <div class="header-title">
+                {{restaurantName}}
+            </div>
+
+            <div class="selectedUserRating">
+                ★{{ratingVar}} • {{userRatingVar}} • {{locationVar}}
+            </div>
+
+        </div>
+
+        <div class="categoryGrid">
+            
+        </div>
+
+        <div class="viewMenuGrid">
+            <div class="category">
+                <a onclick="scrollToSection('categoryScoll')">Categories</a>
+                <a onclick="scrollToSection('about_section')">About</a>
+                <a onclick="scrollToSection('reviews')">Reviews</a>
+            </div>
+            <div class="left_category">
+                {% for key in restaurant_info %}
+                    <p href="#{{key}}">{{key}}</p>
+                {% endfor %}
+            </div>
+            <div class="right_menu">
+                
+
+                <div class="right_menu_grid">
+                    {% for key,value in restaurant_info.items() %}
+                        <div class="categoryTitle">
+                            {{key}}          
+                        </div>
+                        {% for inKey, inValue in value.items() %}
+                            
+                            
+                            <div class="foodItemDiv">
+                                
+                                <div class="nameFood">{{inKey}}</div>
+                                <div class="calAmt">{{inValue.cal}} cal</div>
+                                
+                                <img class="picFood" src="{{restaurant_info[key][inKey]['image_url']}}" alt="img">
+                                <p class="priceAmt">${{inValue.price}}</p>
+                                <p class="optionView1" style="color: white;">{{inValue.cheese}}</p>
+                                <p class="optionView2" style="color: white;" >{{inValue.sauces}}</p>
+                                <p class="optionView3" style="color: white;" >{{inValue.potatos}}</p>
+                                <p class="optionView4" style="color: white;" >{{inValue.sizes}}</p>
+                                <p class="optionView5" style="color: white;">{{inValue.select_drink}}</p>
+                                <p class="whichRestaurant" style="color: white;">{{restaurantName}}</p> 
+                            </div>
+                            
+                            
+                        {% endfor %}
+
+                        {% set firstTwo = True %}
+                    
+                    {% endfor %}
+                    <div id="overlayPopUp">...</div>
+
+                    <div id='foodModal'>
+                        <div class="modal-content">
+                            <div class="marginFoodItems">
+                                <span id="close">&times;</span>
+                                <p id="itemName" ></p>
+                                <p id="itemCalAmt"></p>
+                                <p id="itemPriceAmt"></p>
+                                <p style="color: red; margin-top: 40px;">One selection is required for each option</p>
+
+                                <div id="itemCheeseOptions"></div>
+                                <div id="itemSauceOptions"></div>
+                                <div id="itemPotatoOptions"></div>
+                                <div id="itemDrinkOptions"></div>
+                                <div id="itemDrink2Options"></div>
+                                
+                                <button onclick=buttonClicked(this) id="addToCart">Add to cart</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <section id="about_section">
+            <h4>{{restaurantName}}'s Menu Info</h4>
+            <p>{{locationVar}}</p>
+        </section>
+
+        
+
+        <section id="reviews">
+            <h4 style="font-size: x-large;">Reviews for {{restaurantName}}</h4>
+            {% set ratings = ratingVar | int %}
+            {% for x in range(ratings) %}
+                <span class="fa fa-star checked" style="color: orange;"></span>
+            {% endfor %}
+            {% for x in range(5 - ratings) %}
+                <span class="fa fa-star"></span>
+            {% endfor %}
+            <p>{{userRatingVar}} ratings</p>
+            
+            
+        </section>
+
+
+    {% endblock %}
+</body>
+</html>

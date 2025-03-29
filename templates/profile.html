@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="profileGrid">
+        <div class="likedRestaurants"><a href="{{url_for('liked')}}">Liked Restaurants</a></div>
+        <div class="settings"><button onclick=showModal()>Settings</button></div>
+        <div class="logout"><a href="{{url_for('logout')}}">Logout</a></div>
+        
+    </div>
+
+    <div id="overlayPopUp">...</div>
+    <div id='settingsModal'>
+        <div class="modal-content2">
+            <div class="marginSettingItems">
+                <span id="close">&times;</span>
+                <div id="changeAccount"><a href="{{url_for('changeAccount')}}">Change Account</a></div>
+                <div id="deleteAccount"><button onclick="deleteAccModal()">Delete Account</a></div>
+                <div id="new_restaurant_submission"><a href="{{url_for('restaurantSubmission')}}">New Restaurant Submission</a></div>
+                <div class="changePass"><button onclick="changeModal()">Change Password</button></div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div id="overlayPopUp">...</div>
+    <div id='changePassword'>
+        <div class="modal-content2">
+            <div class="marginSettingItems">
+                <span id="close2">&times;</span>
+                <div class="current_password">
+                    Enter Current Password
+                    <input type="password" id="current_password">
+                    <button onclick="checkPass()">Submit</button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div id="overlayPopUp">...</div>
+    <div id='deleteAccountModal'>
+        <div class="modal-content2">
+            <div class="marginSettingItems">
+                <span id="close3">&times;</span>
+                <div class="delete_account">
+                    Are you sure you want to delete your account?
+                    <button onclick="confirmation()">Yes</button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let data1;
+        let once = 0;
+        const modal = document.getElementById("settingsModal");
+        const closeModal = document.getElementById("close");
+        function confirmation() {
+            fetch(`/delete`, { 
+                    method: 'POST',
+            });
+        }
+
+        function checkPass() {
+            let pass = document.getElementById('current_password').value;
+            fetch(`/checkPass`, { 
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: pass })
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        data1 = data;
+                    
+                        if (data1 == "True") {
+                            console.log("in true");
+                            window.location.href = "changePass";
+                            let correctOrNot = document.getElementsByClassName('correctOrNot')[0].innerHTML = "";
+                        }
+                        else {
+                            if (once < 1) {
+                                console.log("executed");
+                                document.getElementsByClassName('current_password')[0].innerHTML += `<p class="correctOrNot" style="color: red;">Incorrect</p>`;
+                                once++;
+                            }
+                            
+                        }
+                    });
+        }
+
+        function deleteAccModal() {
+            $("#settingsModal").hide();
+            $('#changePassword').hide();
+            $("#deleteAccountModal").show();
+        }
+
+        function showModal() {
+            $("#settingsModal").show();
+            $("#overlayPopUp").show();
+        }
+
+        
+
+        function changeModal() {
+            $("#settingsModal").hide();
+            $("#deleteAccountModal").hide();
+            $('#changePassword').show();
+            
+        }
+
+        $("#close2").click(function () {
+            $('#changePassword').hide();
+            $("#overlayPopUp").hide();
+            
+        });
+
+        $("#close3").click(function () {
+            $('#deleteAccountModal').hide();
+            $("#overlayPopUp").hide();
+            
+        });
+        
+        $("#close").click(function () {
+            $("#settingsModal").hide();
+            $("#overlayPopUp").hide();
+            
+        });
+    </script>
+        
+    {% endblock %}
+</body>
+</html>
