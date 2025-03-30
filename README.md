@@ -59,7 +59,9 @@ Contact me at ariq922@hotmail.com
 
 ### Demo
 
-insert url here
+Available at https://ariqgchowdhury.github.io/portfolio
+
+or Direct Link https://drive.google.com/file/d/1p88k-0KrPsl33RT-8fxdaTCFy_JK-ZpR/preview
 
 ### License
 
